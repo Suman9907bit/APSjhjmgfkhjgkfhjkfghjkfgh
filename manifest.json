@@ -1,13 +1,13 @@
 {
   "name": "Jana Online Service",
-  "short_name": "Jana Service",
+  "short_name": "JOS ADMIN",
   "description": "Jana Online Service - আপনার প্রয়োজনীয় Online ও Digital Services এক জায়গায়।",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait-primary",
 
-  "theme_color": "#0097a7",
+  "theme_color": "#b8bfbf",
   "background_color": "#f0f9ff",
 
   "icons": [
