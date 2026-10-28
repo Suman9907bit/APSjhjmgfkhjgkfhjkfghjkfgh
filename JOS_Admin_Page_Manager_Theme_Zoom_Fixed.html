@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#dce8f4">
+<title>JOS Admin Page Manager</title>
+
+  <!-- =====================================================
+     PWA CONFIG
+===================================================== -->
+
+<meta name="theme-color" content="#dce8f4">
+
+<meta
+  name="description"
+  content="Jana Online Service - আপনার প্রয়োজনীয় Online ও Digital Services এক জায়গায়।"
+>
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta
+  name="apple-mobile-web-app-capable"
+  content="yes"
+>
+
+<meta
+  name="apple-mobile-web-app-status-bar-style"
+  content="default"
+>
+
+<meta
+  name="apple-mobile-web-app-title"
+  content="Jana Online Service"
+>
+
+<link
+  rel="manifest"
+  href="manifest.json"
+>
+
+<link
+  rel="apple-touch-icon"
+  href="icons/icon-192.png"
+>
+  
+<style>
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+:root{
+  --primary:#075985;
+  --primary2:#0ea5e9;
+  --dark:#082f49;
+  --success:#16a34a;
+  --danger:#dc2626;
+  --warning:#d97706;
+  --light:#f0f9ff;
+  --white:#fff;
+  --border:#dbeafe;
+  --shadow:0 12px 35px rgba(2,48,71,.15);
+}
+<style>
+:root{--teal:#0f766e;--teal2:#14b8a6;--navy:#102a43;--ink:#172b4d;--muted:#64748b;--line:#e2e8f0;--bg:#f4f8fb;--white:#fff;--red:#dc2626;--amber:#d97706;--green:#15803d;--shadow:0 10px 30px rgba(15,23,42,.07)}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--ink)}button,input,select,textarea{font:inherit}button{cursor:pointer}.hidden{display:none!important}
+.login-wrap{min-height:100vh;display:grid;place-items:center;padding:20px;background:radial-gradient(circle at top right,#ccfbf1,transparent 35%),linear-gradient(135deg,#f8fafc,#e6fffb)}
+.login-card{width:min(100%,420px);background:white;border:1px solid var(--line);border-radius:24px;padding:30px;box-shadow:var(--shadow)}.brand-mark{width:54px;height:54px;border-radius:17px;background:linear-gradient(135deg,var(--teal),var(--teal2));display:grid;place-items:center;color:white;font-weight:900;font-size:20px;box-shadow:0 8px 18px #0f766e35}.login-card h1{font-size:24px;margin:18px 0 6px}.muted{color:var(--muted)}.field{display:grid;gap:7px;margin:14px 0}.field label{font-size:13px;font-weight:750;color:#334155}.field input,.field select,.field textarea,.toolbar input,.toolbar select{width:100%;padding:12px 13px;border:1px solid #cbd5e1;border-radius:11px;background:#fff;color:var(--ink);outline:none}.field input:focus,.field select:focus,.field textarea:focus,.toolbar input:focus,.toolbar select:focus{border-color:var(--teal2);box-shadow:0 0 0 3px #14b8a61f}.btn{border:0;border-radius:11px;padding:11px 15px;font-weight:750;display:inline-flex;align-items:center;justify-content:center;gap:8px}.btn-primary{background:var(--teal);color:white}.btn-primary:hover{background:#115e59}.btn-light{background:#e6fffb;color:#115e59}.btn-outline{background:white;border:1px solid var(--line);color:var(--ink)}.btn-danger{background:#fee2e2;color:#991b1b}.btn-small{padding:7px 10px;font-size:12px;border-radius:9px}
+.app{min-height:100vh;display:grid;grid-template-columns:250px minmax(0,1fr)}.sidebar{background:#0b2438;color:#dbeafe;padding:22px 15px;display:flex;flex-direction:column;gap:22px;min-height:100vh;position:sticky;top:0;height:100vh}.brand{display:flex;gap:11px;align-items:center;padding:0 7px}.brand .brand-mark{width:42px;height:42px;border-radius:13px;flex-shrink:0}.brand b{display:block;color:white;font-size:14px}.brand small{display:block;color:#9fb3c8;font-size:11px;margin-top:3px}.nav-label{font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:#7e9bb4;padding:0 12px;margin:6px 0}.nav{display:grid;gap:5px}.nav button{display:flex;align-items:center;gap:12px;border:0;border-radius:11px;padding:12px;background:transparent;color:#c8d7e5;text-align:left;font-size:13px;font-weight:650}.nav button:hover,.nav button.active{background:#17445a;color:white}.nav .ico{width:21px;text-align:center;font-size:17px}.side-foot{margin-top:auto;padding:12px;border:1px solid #24445a;border-radius:13px;font-size:11px;color:#a9c1d4;line-height:1.6}
+.main{min-width:0}.topbar{height:75px;background:white;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 30px;gap:16px}.top-title{font-weight:850;font-size:18px}.top-right{display:flex;align-items:center;gap:10px}.avatar{width:36px;height:36px;border-radius:12px;background:#ccfbf1;color:#115e59;display:grid;place-items:center;font-weight:900}.content{padding:27px 30px 40px;max-width:1500px;margin:auto}.welcome{display:flex;justify-content:space-between;align-items:flex-start;gap:15px;margin-bottom:23px}.welcome h1{margin:0 0 7px;font-size:25px;letter-spacing:-.5px}.welcome p{margin:0;color:var(--muted);font-size:13px}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px;margin-bottom:22px}.stat{background:white;border:1px solid var(--line);border-radius:17px;padding:18px;box-shadow:0 4px 15px #0f172a04}.stat-top{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:12px;font-weight:700}.stat-icon{width:36px;height:36px;border-radius:12px;background:#ccfbf1;display:grid;place-items:center;font-size:17px}.stat strong{display:block;font-size:29px;margin-top:12px;letter-spacing:-1px}.stat small{color:var(--muted);font-size:11px}.panel{background:white;border:1px solid var(--line);border-radius:17px;box-shadow:0 4px 15px #0f172a04;overflow:hidden}.panel-head{padding:18px 20px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:12px}.panel-head h2{font-size:15px;margin:0}.toolbar{padding:15px 20px;display:grid;grid-template-columns:minmax(180px,1fr) 200px auto;gap:10px;border-bottom:1px solid var(--line)}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:780px}th,td{text-align:left;padding:13px 17px;border-bottom:1px solid #edf2f7;font-size:12px;vertical-align:middle}th{background:#f8fafc;color:#64748b;text-transform:uppercase;font-size:10px;letter-spacing:.7px}tbody tr:hover{background:#fbfefd}.page-name{font-size:13px;font-weight:800;color:#172b4d}.page-desc{font-size:11px;color:var(--muted);max-width:260px;margin-top:4px;overflow-wrap:anywhere}.url{color:#0f766e;text-decoration:none;max-width:210px;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.pill{display:inline-flex;align-items:center;gap:5px;padding:5px 8px;border-radius:999px;font-size:10px;font-weight:800;background:#f1f5f9;color:#475569}.pill.green{background:#dcfce7;color:#166534}.pill.red{background:#fee2e2;color:#991b1b}.pill.gold{background:#fef3c7;color:#92400e}.actions{display:flex;gap:6px;flex-wrap:wrap}.empty{text-align:center;padding:45px 15px;color:var(--muted);font-size:13px}.empty b{display:block;color:var(--ink);font-size:15px;margin-bottom:5px}.footnote{font-size:11px;color:var(--muted);padding:14px 20px}.modal-backdrop{position:fixed;inset:0;background:#0f172acc;z-index:20;display:grid;place-items:center;padding:18px;overflow:auto}.modal{background:white;width:min(100%,620px);border-radius:20px;box-shadow:0 25px 80px #0004;max-height:calc(100vh - 36px);overflow:auto}.modal-head{display:flex;align-items:center;justify-content:space-between;padding:20px 22px;border-bottom:1px solid var(--line)}.modal-head h2{margin:0;font-size:17px}.modal-body{padding:8px 22px 22px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}.span-2{grid-column:1/-1}.check-row{display:flex;gap:18px;flex-wrap:wrap;margin:10px 0 18px}.check-row label{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700}.modal-actions{display:flex;justify-content:flex-end;gap:9px;padding-top:14px;border-top:1px solid var(--line)}.toast{position:fixed;right:20px;bottom:20px;z-index:50;background:#102a43;color:white;padding:13px 17px;border-radius:12px;box-shadow:var(--shadow);font-size:13px;max-width:min(90vw,400px)}.toast.error{background:#991b1b}.loading{opacity:.55;pointer-events:none}.mobile-menu{display:none}.mobile-nav{display:none}
+@media(max-width:1050px){.app{grid-template-columns:215px minmax(0,1fr)}.content{padding:22px 20px}.topbar{padding:0 20px}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.toolbar{grid-template-columns:1fr 180px auto}}
+@media(max-width:760px){.app{display:block}.sidebar{display:none}.topbar{height:65px;padding:0 15px}.mobile-menu{display:inline-flex}.top-title{font-size:15px}.top-right .user-label{display:none}.content{padding:21px 13px 90px}.welcome{align-items:center}.welcome h1{font-size:21px}.welcome p{font-size:12px}.welcome .btn{padding:10px;font-size:12px}.stats{gap:10px}.stat{padding:14px}.stat strong{font-size:25px}.stat-top{font-size:11px}.stat-icon{width:31px;height:31px}.panel-head{padding:15px}.toolbar{grid-template-columns:1fr 1fr;padding:12px}.toolbar input{grid-column:1/-1}.toolbar .btn{grid-column:1/-1}.mobile-nav{position:fixed;z-index:10;bottom:0;left:0;right:0;display:grid;grid-template-columns:repeat(5,1fr);gap:2px;padding:7px 4px calc(7px + env(safe-area-inset-bottom));background:#fff;border-top:1px solid var(--line);box-shadow:0 -8px 20px #0f172a0b}.mobile-nav button{border:0;background:transparent;color:#64748b;font-size:9px;font-weight:750;display:grid;justify-items:center;gap:3px;padding:5px 1px}.mobile-nav button span{font-size:18px}.mobile-nav button.active{color:var(--teal)}.form-grid{grid-template-columns:1fr}.span-2{grid-column:auto}.modal-backdrop{padding:10px}.modal{max-height:calc(100vh - 20px)}.modal-body{padding:8px 16px 16px}.modal-head{padding:16px}.table-wrap{max-height:none}.top-right .btn{padding:9px 10px}.panel-head h2{font-size:14px}}
+@media(max-width:380px){.stats{grid-template-columns:1fr 1fr}.stat strong{font-size:22px}.avatar{display:none}.welcome{display:block}.welcome .btn{margin-top:12px}}
+
+/* WINDOWS 7 / CLASSIC OFFICE THEME — visual-only overrides; data/API logic unchanged */
+:root{--teal:#1b5790;--teal2:#5da9e9;--navy:#17365d;--ink:#1d2d3f;--muted:#5b6875;--line:#9db6ce;--bg:#dce8f4;--white:#fff;--red:#a4262c;--amber:#b7791f;--green:#26733b;--shadow:0 3px 10px rgba(20,45,75,.22)}
+*{box-sizing:border-box}body{font-family:"Segoe UI",Tahoma,Arial,sans-serif;background:linear-gradient(180deg,#eef5fc 0%,#c9dced 100%);color:#1d2d3f;font-size:13px}
+.login-wrap{background:radial-gradient(ellipse at 50% 20%,#fff 0%,#eaf4ff 38%,#b9d2ea 100%)}
+.login-card{border:1px solid #7398bb;border-radius:5px;padding:26px;background:linear-gradient(#fff,#f1f6fc);box-shadow:0 1px 0 #fff inset,0 0 0 4px #d6e5f3,0 12px 28px #234b713d}
+.brand-mark{border-radius:4px;background:linear-gradient(180deg,#76b9f3 0%,#2875bb 48%,#174d86 50%,#3e8ed0 100%);border:1px solid #1e568a;box-shadow:0 1px 0 #fff inset;font-family:"Segoe UI",Tahoma,sans-serif}
+.login-card h1{font-size:22px;color:#174775;text-shadow:0 1px #fff}
+.field label{color:#294966}.field input,.field select,.field textarea,.toolbar input,.toolbar select{border:1px solid #8aa9c5;border-radius:2px;background:linear-gradient(#fff,#f7fbff);padding:8px 9px;box-shadow:0 1px 2px #1a426b12 inset}.field input:focus,.field select:focus,.field textarea:focus,.toolbar input:focus,.toolbar select:focus{border-color:#2f83c8;box-shadow:0 0 0 2px #68b7ef45;outline:0}
+.btn{border-radius:3px;padding:8px 12px;font-weight:600;border:1px solid #829fba;box-shadow:0 1px 0 #fff inset,0 1px 2px #163d6417;background:linear-gradient(#fff,#dce8f4);color:#173b5e;text-shadow:0 1px #fff}.btn:hover{filter:brightness(1.035);border-color:#4b85b8}.btn:active{background:linear-gradient(#c7d9eb,#edf5fc);box-shadow:0 1px 2px #21486c inset}.btn-primary{color:#fff;border-color:#205b91;background:linear-gradient(#7dc0f4 0%,#3d91d4 48%,#236bb0 50%,#3a83c5 100%);text-shadow:0 -1px #184b7d}.btn-primary:hover{background:linear-gradient(#92cefa,#2d7dbd)}.btn-light{background:linear-gradient(#f7fcff,#d7e9f8);color:#174c79;border-color:#83a9c9}.btn-outline{background:linear-gradient(#fff,#e5eef7);border:1px solid #9bb2c8;color:#1c4569}.btn-danger{background:linear-gradient(#fff4f4,#f3d5d7);border-color:#c18c91;color:#8c2028}
+.app{background:#dce8f4;gap:0;grid-template-columns:238px minmax(0,1fr)}.sidebar{background:linear-gradient(90deg,#d6e5f3,#eaf3fb 12%,#dceaf7);color:#244766;padding:12px 9px;border-right:1px solid #8aa8c4;box-shadow:1px 0 0 #fff inset;gap:15px}.brand{padding:8px 7px 13px;border-bottom:1px solid #adc5db;box-shadow:0 1px #fff}.brand .brand-mark{border-radius:4px}.brand b{color:#174775;text-shadow:0 1px #fff}.brand small{color:#526f89}.nav-label{color:#597894;letter-spacing:.7px;font-size:10px}.nav{gap:2px}.nav button{border-radius:3px;color:#244766;padding:9px 10px;border:1px solid transparent;font-weight:600}.nav button:hover{background:linear-gradient(#f8fcff,#d5e8f8);border-color:#a2c5e2;color:#123f6c}.nav button.active{background:linear-gradient(#d8ecfc,#a9d2f2 48%,#8fc2ed 50%,#c1e1fa);border:1px solid #6c9fc9;color:#123f6c;box-shadow:0 1px 0 #fff inset}.nav .ico{font-size:15px}.side-foot{border:1px solid #a8bfd4;border-radius:3px;background:#edf5fc;color:#476884;padding:9px}
+.topbar{height:58px;padding:0 22px;background:linear-gradient(#fdfefe,#e6f0f9);border-bottom:1px solid #88a9c7;box-shadow:0 1px 0 #fff inset}.top-title{color:#174775;font-size:17px;text-shadow:0 1px #fff}.avatar{border-radius:3px;background:linear-gradient(#e6f4ff,#b5d8f3);border:1px solid #8eb4d5;color:#1b5487}.content{padding:22px 24px 36px}.welcome h1{color:#174775;font-size:23px;letter-spacing:0;text-shadow:0 1px #fff}.welcome p{color:#5b7185}.stat,.panel{border:1px solid #9bb5cc;border-radius:4px;background:linear-gradient(#fff,#f7fbff);box-shadow:0 1px 0 #fff inset,0 2px 5px #254c7117}.stat{padding:14px}.stat-top{color:#536d85}.stat-icon{border:1px solid #b2cde4;border-radius:3px;background:linear-gradient(#eff8ff,#cfe7fb)}.stat strong{color:#174775;font-size:27px;letter-spacing:0}.panel-head{background:linear-gradient(#fbfdff,#e2edf7);border-bottom:1px solid #b1c6d9;padding:13px 16px}.panel-head h2{color:#174775}.toolbar{background:#f1f7fc;border-bottom:1px solid #b5c9dc;padding:11px 14px}.table-wrap{background:#fff}table{min-width:780px}th{background:linear-gradient(#f8fbfe,#dce9f5);color:#355a79;border-bottom:1px solid #a9bfd3;text-transform:none;letter-spacing:0;font-size:11px}th,td{padding:11px 13px;border-bottom:1px solid #dce6ef}tbody tr:nth-child(even){background:#f6faff}tbody tr:hover{background:#e7f3ff}.page-name{color:#174775}.url{color:#176ba6;text-decoration:underline}.pill{border-radius:3px;border:1px solid #c4d3e1;background:linear-gradient(#fff,#e8eff6);color:#3f5b73;padding:4px 7px}.pill.green{background:linear-gradient(#f4fff5,#d5f0d8);border-color:#a6cda9;color:#226431}.pill.red{background:linear-gradient(#fff7f7,#f5dfe0);border-color:#d8a7aa;color:#922a30}.pill.gold{background:linear-gradient(#fffdf0,#f7e9b5);border-color:#d7c27c;color:#775b10}.empty{color:#60778d}.empty b{color:#174775}.footnote{background:#f1f7fc;border-top:1px solid #d3e0ec}
+.modal-backdrop{background:#1a385b99}.modal{border:1px solid #7197ba;border-radius:5px;box-shadow:0 0 0 3px #d9e8f5,0 15px 45px #132f4c66}.modal-head{background:linear-gradient(#fdfefe,#dbeaf7);border-bottom:1px solid #9bb8d1;padding:15px 18px}.modal-head h2{color:#174775}.modal-body{background:#fff}.modal-actions{border-top:1px solid #c8d8e6}.toast{border:1px solid #1c4f7d;border-radius:3px;background:linear-gradient(#397fb8,#174d7c);box-shadow:0 3px 12px #17395766}.toast.error{background:linear-gradient(#bd555b,#8e2028)}
+.mobile-nav{background:linear-gradient(#f7fbff,#dceaf7);border-top:1px solid #91aec8;box-shadow:0 -2px 8px #193f621f}.mobile-nav button{color:#42617c}.mobile-nav button.active{color:#14568d;background:linear-gradient(#eaf6ff,#c4e2fa);border:1px solid #a5c9e6;border-radius:3px}.mobile-nav button span{font-size:17px}
+@media(max-width:760px){.sidebar{display:none}.topbar{height:58px;padding:0 10px}.content{padding:16px 10px 88px}.welcome h1{font-size:20px}.stat{padding:11px}.stat strong{font-size:23px}.panel-head{padding:12px}.toolbar{padding:9px;gap:7px}.modal{border-radius:4px}}
+
+
+/* Full-window page viewer, live calendar clock, and locked zoom/selection */
+.page-open-link{cursor:pointer;color:#174775}.page-open-link:hover{text-decoration:underline;color:#1b5790}.top-clock{display:flex;flex-direction:column;align-items:flex-end;line-height:1.25;white-space:nowrap;margin-right:4px;color:#174775;font-size:11px}.top-clock b{font-size:14px;font-variant-numeric:tabular-nums}.top-clock span{font-size:10px;color:#506b85;margin-top:3px}
+.page-viewer{position:fixed;inset:0;z-index:1000;background:#d9e7f4;display:flex;flex-direction:column;min-width:0;min-height:0}.page-viewer.hidden{display:none!important}.viewer-head{height:66px;flex:0 0 66px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 14px;background:linear-gradient(#fff,#d7e8f8 48%,#b5d0e9);border-bottom:1px solid #7296b7;box-shadow:0 1px 0 #fff inset}.viewer-title-wrap{display:flex;align-items:center;gap:10px;min-width:0}.viewer-app-icon{width:40px;height:40px;flex:0 0 40px;display:grid;place-items:center;color:#fff;font-weight:900;font-size:12px;border:1px solid #174d86;border-radius:4px;background:linear-gradient(#7fc2f7,#2875bb 49%,#174d86 51%,#3e8ed0);box-shadow:0 1px 0 #fff inset}.viewer-title-text{min-width:0;display:flex;flex-direction:column;gap:4px}.viewer-title-text strong{font-size:14px;color:#143b60;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:min(58vw,800px)}.viewer-title-text small{font-size:10px;color:#4b6884}.viewer-actions{display:flex;gap:7px;flex-shrink:0}.viewer-frame-wrap{position:relative;flex:1;min-height:0;background:#fff}.viewer-frame-wrap iframe{display:block;width:100%;height:100%;border:0;background:#fff}.frame-fallback{position:absolute;inset:0;display:grid;place-content:center;text-align:center;padding:24px;color:#294b68;background:#f4f8fc}.frame-fallback.hidden{display:none!important}
+html,body{overscroll-behavior:contain}body,.app,.sidebar,.topbar,.content,.panel,.panel-head,.stat,.nav button,.btn,.page-name,.page-desc,.footnote{ -webkit-user-select:none;user-select:none;-webkit-touch-callout:none}input,textarea,select,[contenteditable="true"]{-webkit-user-select:text;user-select:text}
+@media(max-width:760px){.top-clock{align-items:flex-start;margin-right:auto;margin-left:2px}.top-clock b{font-size:12px}.top-clock span{font-size:9px}.topbar{gap:6px}.top-right{gap:5px}.top-right .avatar{display:none}.viewer-head{height:60px;flex-basis:60px;padding:7px}.viewer-app-icon{width:34px;height:34px;flex-basis:34px}.viewer-title-text strong{max-width:42vw;font-size:12px}.viewer-title-text small{font-size:9px}.viewer-actions{gap:4px}.viewer-actions .btn{padding:8px 9px;font-size:11px}.viewer-actions .btn span{display:none}}
+
+</style>
+</head>
+<body>
+<div id="loginScreen" class="login-wrap">
+  <form class="login-card" id="loginForm">
+    <div class="brand-mark">JOS</div>
+    <h1>Admin Page Manager</h1>
+    <p class="muted" style="font-size:13px;line-height:1.6">Manage all Jana Online Service links from one secure dashboard.</p>
+    <div class="field"><label for="password">Admin Password</label><input id="password" type="password" placeholder="Enter admin password" required autocomplete="current-password"></div>
+    <button class="btn btn-primary" style="width:100%;margin-top:5px" type="submit">Sign in securely <span>→</span></button>
+    <p id="loginError" class="muted" style="font-size:12px;line-height:1.5;margin-top:14px">First deploy the Apps Script API and set the ADMIN_PASSWORD script property.</p>
+  </form>
+</div>
+
+<div id="app" class="app hidden">
+  <aside class="sidebar">
+    <div class="brand"><div class="brand-mark">JOS</div><div><b>Jana Online Service</b><small>ADMIN WORKSPACE</small></div></div>
+    <div><div class="nav-label">Workspace</div><nav class="nav" id="sideNav"></nav></div>
+    <div class="side-foot">● Connected workspace<br>Google Sheets database<br><span id="sideStatus">Checking connection…</span></div>
+  </aside>
+  <main class="main">
+    <header class="topbar">
+      <div style="display:flex;align-items:center;gap:11px"><button class="btn btn-outline mobile-menu" id="mobileMenu" aria-label="Open dashboard">☰</button><div class="top-title" id="topTitle">Dashboard</div></div>
+      <div class="top-right"><div id="topClock" class="top-clock" aria-live="off"><b id="clockTime">--:--:--</b><span id="clockDate">Loading date…</span></div><button class="btn btn-outline btn-small" id="refreshBtn">↻ <span class="user-label">Refresh</span></button><div class="avatar">J</div><span class="user-label" style="font-size:12px;font-weight:800">Administrator</span><button class="btn btn-light btn-small" id="logoutBtn">Logout</button></div>
+    </header>
+    <div class="content">
+      <section class="welcome"><div><h1 id="welcomeTitle">Good day, Administrator</h1><p id="welcomeText">Manage your links and service pages from one place.</p></div><button class="btn btn-primary" id="addPageBtn">＋ Add new page</button></section>
+      <section class="stats" id="stats"></section>
+      <section class="panel">
+        <div class="panel-head"><h2 id="listTitle">All Pages</h2><span id="resultCount" class="pill">0 pages</span></div>
+        <div class="toolbar"><input id="searchInput" type="search" placeholder="⌕ Search page title, URL, description…"><select id="categoryFilter" aria-label="Filter category"><option value="All Pages">All categories</option></select><button class="btn btn-outline" id="clearFilterBtn">Clear filters</button></div>
+        <div class="table-wrap"><table><thead><tr><th>Page details</th><th>Category</th><th>URL</th><th>Priority</th><th>Status</th><th>Actions</th></tr></thead><tbody id="pageRows"></tbody></table><div id="emptyState" class="empty hidden"><b>No pages found</b>Try a different search or add a new page.</div></div>
+        <div class="footnote">Changes are stored in your connected Google Sheet.</div>
+      </section>
+    </div>
+  </main>
+</div>
+<nav id="mobileNav" class="mobile-nav hidden"></nav>
+
+<div id="pageModal" class="modal-backdrop hidden">
+ <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-head"><h2 id="modalTitle">Add new page</h2><button class="btn btn-outline btn-small" id="closeModalBtn" type="button">✕</button></div>
+  <form id="pageForm" class="modal-body">
+   <input type="hidden" id="pageId">
+   <div class="form-grid">
+    <div class="field span-2"><label for="pageTitle">Page title *</label><input id="pageTitle" maxlength="100" required placeholder="e.g. PAN Card Services"></div>
+    <div class="field span-2"><label for="pageUrl">Page URL *</label><input id="pageUrl" type="url" required placeholder="https://example.com"></div>
+    <div class="field"><label for="pageCategory">Category *</label><select id="pageCategory" required></select></div>
+    <div class="field"><label for="pageIcon">Icon name / emoji</label><input id="pageIcon" maxlength="30" placeholder="🔗 or file-text"></div>
+    <div class="field span-2"><label for="pageDescription">Short description</label><textarea id="pageDescription" rows="3" maxlength="300" placeholder="What is this page used for?"></textarea></div>
+   </div>
+   <div class="check-row"><label><input id="pageImportant" type="checkbox"> ★ Mark as important</label><label><input id="pageActive" type="checkbox" checked> Active page</label></div>
+   <div class="modal-actions"><button type="button" class="btn btn-outline" id="cancelModalBtn">Cancel</button><button class="btn btn-primary" id="savePageBtn" type="submit">Save page</button></div>
+  </form>
+ </div>
+</div>
+<section id="pageViewer" class="page-viewer hidden" aria-label="Page viewer">
+ <header class="viewer-head">
+  <div class="viewer-title-wrap"><div class="viewer-app-icon">JOS</div><div class="viewer-title-text"><strong id="viewerPageName">Page</strong><small id="viewerDateTime">Loading date and time…</small></div></div>
+  <div class="viewer-actions"><button type="button" class="btn btn-outline btn-small" id="viewerNewWindow">↗ <span>New window</span></button><button type="button" class="btn btn-danger btn-small" id="viewerClose">✕ <span>Close</span></button></div>
+ </header>
+ <div class="viewer-frame-wrap"><iframe id="pageFrame" title="Selected JOS page" src="about:blank" allow="clipboard-read; clipboard-write; fullscreen" referrerpolicy="strict-origin-when-cross-origin"></iframe><div id="frameFallback" class="frame-fallback hidden">This page does not allow iframe display. Use <b>New window</b> to open it separately.</div></div>
+</section>
+<div id="toast" class="toast hidden" role="status"></div>
+
+<script>
+(() => {
+'use strict';
+const $ = id => document.getElementById(id);
+const NAV = [
+ {id:'Dashboard',label:'Dashboard',icon:'▦'},
+ {id:'Admin Pages',label:'Admin Pages',icon:'⚙'},
+ {id:'Important Pages',label:'Important Pages',icon:'★'},
+ {id:'All Pages',label:'All Pages',icon:'▤'},
+ {id:'Helping Web Pages',label:'Helping Web Pages',icon:'♡'},
+ {id:'Others',label:'Others',icon:'▣'}
+];
+const API_URL = 'https://script.google.com/macros/s/AKfycbw4tMqSByuIXquS7uQLZ0_0NmfvWt_S8XjfbHG7G4_pe-beUwTvwFijNEJeNByxeZ8jzQ/exec'; // Paste your deployed Apps Script URL ending in /exec
+let apiUrl = API_URL, token = '', pages = [], categories = ['Admin Pages','Helping Web Pages','Others'], currentView = 'Dashboard', toastTimer;
+const esc = value => String(value == null ? '' : value).replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+function toast(message, error=false) {
+  const el=$('toast'); el.textContent=message; el.classList.remove('hidden','error'); if(error)el.classList.add('error');
+  clearTimeout(toastTimer); toastTimer=setTimeout(()=>el.classList.add('hidden'),3400);
+}
+async function api(action, extra={}) {
+  if(!apiUrl) throw new Error('Apps Script Web App URL is missing.');
+  let response;
+  try {
+    response=await fetch(apiUrl,{method:'POST',redirect:'follow',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({action,token,...extra})});
+  } catch(e) { throw new Error('Could not connect to Apps Script. Check deployment URL and access setting.'); }
+  let data;
+  try { data=await response.json(); } catch(e) { throw new Error('Invalid API response. Check that the Apps Script URL ends in /exec and the deployment is active.'); }
+  if(!data.ok) {
+    if((data.error||'').toLowerCase().includes('unauthorized')) { logout(false); throw new Error('Your session expired. Please sign in again.'); }
+    throw new Error(data.error||'Request failed.');
+  }
+  return data;
+}
+function showLogin(message='') {
+  $('loginScreen').classList.remove('hidden'); $('app').classList.add('hidden'); $('mobileNav').classList.add('hidden');
+  if(message) $('loginError').textContent=message;
+}
+function showApp() { $('loginScreen').classList.add('hidden'); $('app').classList.remove('hidden'); $('mobileNav').classList.remove('hidden'); }
+async function login(password) {
+  apiUrl = API_URL;
+  if(!/^https:\/\/script\.google\.com\/macros\/s\/[^/]+\/exec(?:\?.*)?$/i.test(apiUrl)) throw new Error('First paste your deployed Apps Script URL into API_URL near the top of the JavaScript code.');
+  const result=await api('login',{password});
+  token=result.token;
+  sessionStorage.setItem('josToken',token);
+  showApp(); await loadAll(); toast('Signed in successfully.');
+}
+function logout(show=true) {
+  const oldToken=token;
+  if(show && oldToken) api('logout').catch(()=>{});
+  token=''; sessionStorage.removeItem('josToken');
+  if(show) showLogin('You have signed out.');
+  else showLogin('Your session expired. Please sign in again.');
+}
+async function loadAll() {
+  document.body.classList.add('loading');
+  try {
+    const [list, cats, dash]=await Promise.all([api('list',{category:'All Pages'}),api('categories'),api('dashboard')]);
+    pages=list.pages||[]; categories=cats.categories||categories;
+    $('sideStatus').textContent='Connected'; renderNav(); renderCategoryOptions(); renderStats(dash); renderPages();
+  } finally { document.body.classList.remove('loading'); }
+}
+function renderNav() {
+  const html=NAV.map(n=>`<button type="button" data-view="${esc(n.id)}" class="${currentView===n.id?'active':''}"><span class="ico">${n.icon}</span>${esc(n.label)}</button>`).join('');
+  $('sideNav').innerHTML=html;
+  $('mobileNav').innerHTML=NAV.filter(n=>n.id!=='Helping Web Pages').map(n=>`<button type="button" data-view="${esc(n.id)}" class="${currentView===n.id?'active':''}"><span>${n.icon}</span>${esc(n.label)}</button>`).join('');
+}
+function renderCategoryOptions() {
+  const filter=$('categoryFilter'), prior=filter.value||'All Pages';
+  filter.innerHTML='<option value="All Pages">All categories</option>'+categories.map(c=>`<option value="${esc(c)}">${esc(c)}</option>`).join('');
+  if([...filter.options].some(o=>o.value===prior))filter.value=prior;
+  $('pageCategory').innerHTML=categories.map(c=>`<option value="${esc(c)}">${esc(c)}</option>`).join('');
+}
+function renderStats(dash) {
+  const items=[
+   ['Total pages',dash.total||0,'▤','All registered pages'],
+   ['Active pages',dash.active||0,'✓','Currently enabled'],
+   ['Important',dash.important||0,'★','Priority links'],
+   ['Inactive',dash.inactive||0,'◷','Hidden from active use']
+  ];
+  $('stats').innerHTML=items.map((s,i)=>`<div class="stat"><div class="stat-top"><span>${s[0]}</span><span class="stat-icon">${s[2]}</span></div><strong>${s[1]}</strong><small>${s[3]}</small></div>`).join('');
+}
+function getVisiblePages() {
+  const q=$('searchInput').value.toLowerCase().trim(), category=$('categoryFilter').value;
+  return pages.filter(p=>{
+    const matchesQ=[p.title,p.url,p.description,p.category].join(' ').toLowerCase().includes(q);
+    let matchesC=true;
+    if(currentView==='Important Pages') matchesC=!!p.important;
+    else if(currentView==='Admin Pages'||currentView==='Helping Web Pages'||currentView==='Others') matchesC=p.category===currentView;
+    if(category!=='All Pages') matchesC=matchesC&&(category==='Important Pages'?!!p.important:p.category===category);
+    return matchesQ&&matchesC;
+  });
+}
+function renderPages() {
+  const visible=getVisiblePages();
+  $('topTitle').textContent=currentView; $('listTitle').textContent=currentView==='Dashboard'?'Recent & all pages':currentView;
+  $('welcomeTitle').textContent=currentView==='Dashboard'?'Good day, Administrator':currentView;
+  $('welcomeText').textContent=currentView==='Dashboard'?'Manage your links and service pages from one place.':`Manage ${currentView.toLowerCase()} in your JOS workspace.`;
+  $('resultCount').textContent=`${visible.length} page${visible.length===1?'':'s'}`;
+  $('stats').classList.toggle('hidden',currentView!=='Dashboard');
+  const rows=$('pageRows'), empty=$('emptyState');
+  rows.innerHTML=visible.map(p=>`<tr>
+   <td><div class="page-name page-open-link" role="button" tabindex="0" data-open="${esc(p.id)}" title="Open page">${esc(p.icon||'🔗')} ${esc(p.title)}</div><div class="page-desc">${esc(p.description||'No description added')}</div></td>
+   <td><span class="pill">${esc(p.category)}</span></td>
+   <td><a class="url" href="${esc(p.url)}" data-open="${esc(p.id)}" title="Open in full-screen viewer">${esc(p.url)}</a></td>
+   <td>${p.important?'<span class="pill gold">★ Important</span>':'<span class="pill">Normal</span>'}</td>
+   <td><span class="pill ${p.active?'green':'red'}">${p.active?'● Active':'○ Inactive'}</span></td>
+   <td><div class="actions"><button class="btn btn-primary btn-small" data-open="${esc(p.id)}">Open</button><button class="btn btn-outline btn-small" data-edit="${esc(p.id)}">Edit</button><button class="btn ${p.active?'btn-light':'btn-outline'} btn-small" data-toggle="${esc(p.id)}">${p.active?'Disable':'Enable'}</button><button class="btn btn-danger btn-small" data-delete="${esc(p.id)}">Delete</button></div></td>
+  </tr>`).join('');
+  empty.classList.toggle('hidden',visible.length!==0);
+  renderNav();
+}
+function openModal(page=null) {
+  $('pageForm').reset(); $('pageId').value=page?page.id:''; $('modalTitle').textContent=page?'Edit page':'Add new page';
+  $('pageTitle').value=page?page.title:''; $('pageUrl').value=page?page.url:'';
+  $('pageCategory').value=page?page.category:(currentView!=='Dashboard'&&currentView!=='All Pages'&&currentView!=='Important Pages'?currentView:(categories[0]||'Others'));
+  $('pageIcon').value=page?page.icon:'🔗'; $('pageDescription').value=page?page.description:'';
+  $('pageImportant').checked=page?!!page.important:currentView==='Important Pages';
+  $('pageActive').checked=page?page.active!==false:true;
+  $('pageModal').classList.remove('hidden'); setTimeout(()=>$('pageTitle').focus(),60);
+}
+function closeModal() {$('pageModal').classList.add('hidden');}
+function openPageViewer(pageOrUrl,title='Page') {
+  const url=typeof pageOrUrl==='string'?pageOrUrl:(pageOrUrl&&pageOrUrl.url)||'';
+  const name=typeof pageOrUrl==='string'?title:((pageOrUrl&&pageOrUrl.title)||'Page');
+  if(!url) { toast('Page URL is missing.',true); return; }
+  try { const parsed=new URL(url,location.href); if(!['http:','https:'].includes(parsed.protocol)) throw new Error('Invalid protocol'); }
+  catch(e) { toast('Please check the page URL.',true); return; }
+  $('viewerPageName').textContent=name;
+  $('pageViewer').classList.remove('hidden');
+  $('frameFallback').classList.add('hidden');
+  const frame=$('pageFrame'); frame.src='about:blank';
+  requestAnimationFrame(()=>{frame.src=url;});
+  $('viewerNewWindow').dataset.url=url;
+  $('viewerNewWindow').dataset.title=name;
+  updateViewerClock();
+}
+function closePageViewer(){ $('pageViewer').classList.add('hidden'); $('pageFrame').src='about:blank'; }
+function updateClockText(timeEl,dateEl){
+  const now=new Date();
+  timeEl.textContent=now.toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:true});
+  dateEl.textContent=now.toLocaleDateString('en-IN',{weekday:'long',day:'2-digit',month:'long',year:'numeric'});
+}
+function updateViewerClock(){const now=new Date(); $('viewerDateTime').textContent=now.toLocaleDateString('en-IN',{weekday:'long',day:'2-digit',month:'long',year:'numeric'})+' • '+now.toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:true});}
+function startTopClock(){const tick=()=>updateClockText($('clockTime'),$('clockDate'));tick();setInterval(()=>{tick();if(!$('pageViewer').classList.contains('hidden'))updateViewerClock();},1000);}
+function lockZoom(){
+ document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&(['+','=','-','0','_'].includes(e.key)||e.code==='NumpadAdd'||e.code==='NumpadSubtract')){e.preventDefault();e.stopPropagation();}},true);
+ document.addEventListener('wheel',e=>{if(e.ctrlKey||e.metaKey){e.preventDefault();}}, {passive:false,capture:true});
+ document.addEventListener('gesturestart',e=>e.preventDefault(),{passive:false});
+ document.addEventListener('touchmove',e=>{if(e.touches&&e.touches.length>1)e.preventDefault();},{passive:false});
+}
+
+async function savePage(e) {
+  e.preventDefault();
+  const page={id:$('pageId').value,title:$('pageTitle').value.trim(),url:$('pageUrl').value.trim(),category:$('pageCategory').value,icon:$('pageIcon').value.trim()||'🔗',description:$('pageDescription').value.trim(),important:$('pageImportant').checked,active:$('pageActive').checked};
+  const btn=$('savePageBtn'); btn.disabled=true; btn.textContent='Saving…';
+  try { const result=await api('save',{page}); closeModal(); toast(result.message||'Saved.'); await loadAll(); }
+  catch(err){toast(err.message,true);}
+  finally {btn.disabled=false;btn.textContent='Save page';}
+}
+async function deletePage(id) {
+  const page=pages.find(p=>p.id===id); if(!page)return;
+  if(!confirm(`Delete "${page.title}"? This cannot be undone.`))return;
+  try {const r=await api('delete',{id});toast(r.message||'Deleted.');await loadAll();}
+  catch(err){toast(err.message,true);}
+}
+async function togglePage(id) {
+  const p=pages.find(x=>x.id===id);if(!p)return;
+  try {await api('save',{page:{...p,active:!p.active}});toast(p.active?'Page disabled.':'Page enabled.');await loadAll();}
+  catch(err){toast(err.message,true);}
+}
+document.addEventListener('click',e=>{
+ const nav=e.target.closest('[data-view]'); if(nav){currentView=nav.dataset.view;renderPages();return;}
+ const open=e.target.closest('[data-open]'); if(open){if(open.tagName==='A')e.preventDefault();const p=pages.find(x=>x.id===open.dataset.open);if(p)openPageViewer(p);return;}
+ const edit=e.target.closest('[data-edit]');if(edit){const p=pages.find(x=>x.id===edit.dataset.edit);if(p)openModal(p);return;}
+ const del=e.target.closest('[data-delete]');if(del){deletePage(del.dataset.delete);return;}
+ const tog=e.target.closest('[data-toggle]');if(tog){togglePage(tog.dataset.toggle);return;}
+});
+$('loginForm').addEventListener('submit',async e=>{
+ e.preventDefault();$('loginError').textContent='Connecting to Google Sheets…';
+ try{await login($('password').value);$('password').value='';}
+ catch(err){$('loginError').textContent=err.message;}
+});
+$('pageForm').addEventListener('submit',savePage);
+$('addPageBtn').addEventListener('click',()=>openModal());
+$('closeModalBtn').addEventListener('click',closeModal);$('cancelModalBtn').addEventListener('click',closeModal);
+$('pageModal').addEventListener('click',e=>{if(e.target===$('pageModal'))closeModal();});
+$('searchInput').addEventListener('input',renderPages);$('categoryFilter').addEventListener('change',renderPages);
+$('clearFilterBtn').addEventListener('click',()=>{$('searchInput').value='';$('categoryFilter').value='All Pages';renderPages();});
+$('refreshBtn').addEventListener('click',async()=>{try{await loadAll();toast('Data refreshed.');}catch(e){toast(e.message,true);}});
+$('viewerClose').addEventListener('click',closePageViewer);
+$('viewerNewWindow').addEventListener('click',()=>{const url=$('viewerNewWindow').dataset.url;if(url)window.open(url,'_blank','noopener,noreferrer');});
+$('pageFrame').addEventListener('load',()=>{if(!$('pageViewer').classList.contains('hidden')){try{const frame=$('pageFrame');if(frame.contentWindow.location.href==='about:blank')return;}catch(e){} $('frameFallback').classList.add('hidden');}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('pageViewer').classList.contains('hidden'))closePageViewer();});
+startTopClock();lockZoom();
+$('logoutBtn').addEventListener('click',()=>logout(true));
+$('mobileMenu').addEventListener('click',()=>{currentView='Dashboard';renderPages();window.scrollTo({top:0,behavior:'smooth'});});
+(async()=>{
+ const savedToken=sessionStorage.getItem('josToken');
+ apiUrl = API_URL;
+ if(savedToken){token=savedToken;try{showApp();await loadAll();return;}catch(e){sessionStorage.removeItem('josToken');token='';}}
+ showLogin();
+})();
+})();
+</script>
+</body>
+</html>
